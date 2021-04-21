@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <title>Webpack Starter Kit</title>
-  </head>
-  <body>
-    <h1>Webpack Starter Kit</h1>
-
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
-  </body>
+<head>
+  <title>Travel Tracker</title>
+  <link rel="logo icon" type="image/png" href="./images/yann-allegre-DlF0mqHKvkg-unsplash.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" name="description"
+        content="Travel Tracker is a trip reservation app that allows users to view previous trips, and add & delete trips">
+</head>
+<header>
+  <nav>
+    <button id="log-out-button" aria-label="Log out button" type="button">Log Out</button>
+  </nav>
+  <section class ="logo-area">
+    <h1>Welcome to Travel Tracker</h1>
+  </section>
+</header>
+<body>
+<section class="login-view">
+  <h2>Log into Travel Tracker</h2>
+  <form class ="login-form">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" required class="login-area" aria-label='Text input area to enter your username'>
+    <label for="password">Password</label>
+    <input type="text" id="password" name="password" required class="login-area" aria-label='Text input area to enter your password'>
+    <input type="submit" value="Submit" id="login-submit">
+    <p id="error-msg" class="error"></p>
+  </form>
+</section>
+<main>
+</main>
+</body>
 </html>
