@@ -33,8 +33,4 @@ let fetchData = {
       
 }
 
-
-
-
-
-export default fetchRequest;
+export default fetchData;
