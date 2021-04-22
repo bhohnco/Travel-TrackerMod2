@@ -14,6 +14,11 @@ class Traveler {
     }
   }
 
+  generateFirstName() {
+    let splitName = this.name.split(' ', 2);
+    return splitName[0];
+  }
+
   calculateTravelerTripData() {
 
 
