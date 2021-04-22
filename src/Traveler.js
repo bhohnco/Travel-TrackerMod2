@@ -14,11 +14,29 @@ class Traveler {
     }
   }
 
-  calculateTravelerTripData() {
-
-
+  generateFirstName() {
+    let splitName = this.name.split(' ', 2);
+    return splitName[0];
   }
 
+  findTripInfo(tripType, tripObj) {
+    this[tripType].push(tripObj)
+  }
+
+  generateTripsByYear(year, trips) {
+    return trips.filter(trip => trip.date.includes(year));
+  }
+
+  generateTripCost(trips) {
+    return trips.reduce((tripTotal, trip) => {
+      tripTotal += trip.cost;
+      return tripTotal
+    }, 0)
+  }
+
+  generateAgentFees(cost) {
+    return cost * 0.1;
+  }
 
 }
 
