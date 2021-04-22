@@ -1,5 +1,5 @@
 
-const userTestingData = [{
+const travelerTestingData = [{
   "id": 1,
   "name": "Ham Leadbeater",
   "travelerType": "relaxer"
@@ -231,3 +231,9 @@ const destinationTestingData = [{
   "image": "https://images.unsplash.com/photo-1535776142635-8fa180c46af7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2756&q=80"
 }];
 
+
+module.exports = {
+  travelerTestingData,
+  tripTestingData,
+  destinationTestingData
+}
