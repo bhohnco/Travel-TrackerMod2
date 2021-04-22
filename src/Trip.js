@@ -13,10 +13,10 @@ class Trip {
 
   generateCostOfTravelersTrips(destination) {
     let totalCost = 0;
-    const totalFlightCost = this.travelers * destination.estimatedFlightCostPerPerson;
     const totalLodgingCost = this.duration * destination.estimatedLodgingCostPerDay;
-    totalCost += totalFlightCost;
+    const totalFlightCost = this.travelers * destination.estimatedFlightCostPerPerson;
     totalCost += totalLodgingCost;
+    totalCost += totalFlightCost;
     this.cost = totalCost;
   }
 }
