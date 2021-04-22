@@ -1,16 +1,16 @@
 import chai from 'chai';
 const expect = chai.expect;
-import User from '/src/User'
+import Traveler from '/src/Traveler'
 import sampleTestingData from '../test/sampleTestingData.js';
-const userTestingData = sampleTestingData.userTestingData
+const userTestingData = sampleTestingData.travelerTestingData
 
-describe('User', function () {
-  let user1;
-  let user2;
-  let user3;
+describe('Traveler', function () {
+  let traveler1;
+  let traveler2;
+  let traveler3;
 
   beforeEach(() => {
-    user1 = new User(userTestingData[0]);
-    user2 = new User(userTestingData[1]);
-    user3 = new User(userTestingData[1]);
+    traveler1 = new Traveler(travelerTestingData[0]);
+    traveler2 = new Traveler(travelerTestingData[1]);
+    traveler3 = new Traveler(travelerTestingData[1]);
   });
