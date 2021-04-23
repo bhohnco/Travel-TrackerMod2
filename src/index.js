@@ -7,7 +7,9 @@ import Trip from './Trip';
 
 let currentTraveler;
 let currentTravelerTrips;
-
+let currentTravelerDestinations
+let allDestinationsData;
+let allTripsData;
 
 window.onload = generateAPIData()
 
@@ -15,6 +17,9 @@ const loginButton = document.getElementById('login-submit');
 const logOutButton = document.getElementById('log-out-button');
 const loginView = document.querySelector('.login-view');
 const userView = document.querySelector('.traveler-view');
+
+loginButton.addEventListener('click', validateLoginForm);
+logOutButton.addEventListener('click', logOut);
 
 function generateSingleTravelerAPI(id) {
   fetchData.generateSingleTraveler(id)
@@ -34,26 +39,13 @@ function generateAPIData() {
   Promise.all(fetches)
     .then(data => {
       console.log(data)
-      let allDestinationsData = data[0];
-      let allTripsData = data[1];
+      allDestinationsData = data[0];
+      allTripsData = data[1];
+      updateTravelerDash(currentTraveler)
     })
 }
 
-function generateCurrentDate() {
-  const rawDate = new Date();
-  let day = rawDate.getDate();
-  if (day < 10) {
-    day = `0${day.toString()}`
-  }
-  let month = rawDate.getMonth() + 1;
-  if (month < 10) {
-    month = `0${month.toString()}`
-  }
-  const year = rawDate.getFullYear();
-  return `${year}/${month}/${day}`
-}
-
-function validateForm(event) {
+function validateLoginForm(event) {
   event.preventDefault();
   const userNameValue = document.getElementById('username').value;
   const passwordValue = document.getElementById('password').value;
@@ -66,3 +58,17 @@ function validateForm(event) {
   document.querySelector('.login-form').reset();
 }
 
+function updateTravelerDash (traveler) {
+  domUpdates.greetTraveler(traveler);
+  domUpdates.generateCurrentDate();
+  let tripFor2020 = traveler.generateTripsByYear(2020, currentTravelerTrips);
+  let tripCosts = traveler.generateTripCost(tripFor2020, currentTravelerDestinations);
+  let agentFees = traveler.generateAgentFees(tripCosts);
+  let totalSpent = tripCosts + agentFees;
+  domUpdates.displayTravelersTotalSpent(totalSpent.toFixed(2))
+}
+
+function logOut() {
+  domUpdates.toggleView(loginView, userView);
+  domUpdates.displayFormError('reset')
+}
