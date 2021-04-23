@@ -16,18 +16,33 @@
   </section>
 </header>
 <body>
-<section class="login-view">
-  <h2>Log into Travel Tracker</h2>
-  <form class ="login-form">
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username" required class="login-area" aria-label='Text input area to enter your username'>
-    <label for="password">Password</label>
-    <input type="text" id="password" name="password" required class="login-area" aria-label='Text input area to enter your password'>
-    <input type="submit" value="Submit" id="login-submit">
-    <p id="error-msg" class="error"></p>
-  </form>
-</section>
-<main>
-</main>
+  <section class="login-view">
+    <h2>Log into Travel Tracker</h2>
+    <form class ="login-form">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required class="login-area" aria-label='Text input area to enter your username'>
+      <label for="password">Password</label>
+      <input type="text" id="password" name="password" required class="login-area" aria-label='Text input area to enter your password'>
+      <input type="submit" value="Submit" id="login-submit">
+      <p id="error-msg" class="error"></p>
+    </form>
+  </section>
+  <main>
+    <section class="traveler-view hidden">
+      <h2 class="dash-form">Traveler Dashboard</h2>
+      <section class="dashboard">
+      <section class="traveler-info side-dash">
+        <h2>Your Trip History</h2>
+        <section class="search-results-view">
+          <p id="traveler-name"></p>
+          <p id="trip-total">Total spent on Trips:$<span id="total-spent-traveler"></span></p>
+          <p>Current Trips and Past</p>
+          <ol id="traveler-trip-list">
+          </ol>
+        </section>
+      </section>
+  </main>
 </body>
+
 </html>
+
