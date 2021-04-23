@@ -3,15 +3,11 @@ import fetchData from '../src/fetchRequest';
 import domUpdates from './domUpdates';
 import Traveler from './Traveler';
 import Trip from './Trip';
+import Destination from "./Destination";
 
-let currentTraveler;
-let currentTravelerTrips;
-let currentTravelerDestinations
-let allTravelerData = [];
-let allDestinationsData = [];
-let allTripsData;
+let currentTraveler, currentTravelerTrips, currentTravelerDestinations,
+  allTravelerData, allTravelerData, allDestinationsData, allTripsData;
 
-// window.onload = generateAPIData()
 
 const loginButton = document.getElementById('login-submit');
 const logOutButton = document.getElementById('log-out-button');
@@ -43,6 +39,7 @@ function generateAPIData() {
       allDestinationsData = data[1];
       allTripsData = data[2];
       filterAllTripsForTraveler(allTripsData)
+      filterAllTravelDestinations()
       console.log(allTripsData)
       updateTravelerDash(currentTraveler)
       console.log(currentTraveler)
@@ -70,9 +67,12 @@ function updateTravelerDash (traveler) {
   // domUpdates.toggleView(loginView, userView)
   // domUpdates.generateCurrentDate();
   let tripFor2020 = traveler.generateTripsByYear(2020, currentTravelerTrips);
+  console.log(currentTravelerTrips)
   let tripCosts = traveler.generateTripCost(tripFor2020, currentTravelerDestinations);
+  console.log(tripCosts)
   let agentFees = traveler.generateAgentFees(tripCosts);
   let totalSpent = tripCosts + agentFees;
+  console.log(totalSpent);
   domUpdates.displayTravelersTotalSpent(totalSpent.toFixed(2))
 }
 
@@ -85,6 +85,23 @@ function filterAllTripsForTraveler(allTripsData) {
     return new Trip(trip)
   })
 }
+
+function filterAllTravelDestinations() {
+  console.log(allDestinationsData)
+  let locatedDestinations = []
+  currentTravelerTrips.forEach(trip => {
+    allDestinationsData.destinations.forEach(destination => {
+      if (destination.id === trip.destinationID) {
+        locatedDestinations.push(destination);
+        trip.generateCostOfTravelersTrips(destination)
+      }
+    })
+  })
+  currentTravelerDestinations = locatedDestinations.map(destination => {
+    return new Destination(destination)
+  })
+}
+
 // function logOut() {
 //   domUpdates.toggleView(loginView, userView);
 //   domUpdates.displayFormError('reset')
