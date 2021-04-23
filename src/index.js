@@ -7,11 +7,12 @@ import Trip from './Trip';
 
 let currentTraveler;
 let currentTravelerTrips;
-let trip = new Trip()
-let destination = new Destination()
+
 
 window.onload = generateAPIData()
 
+const loginButton = document.getElementById('login-submit');
+const logOutButton = document.getElementById('log-out-button');
 const loginView = document.querySelector('.login-view');
 const userView = document.querySelector('.traveler-view');
 
@@ -29,12 +30,12 @@ function generateSingleTravelerAPI(id) {
 }
 
 function generateAPIData() {
-  const fetches = [fetchData.generateDestinationData(), fetchData.generateTripData(), fetchData.generateAllTravelerData()];
+  const fetches = [fetchData.generateDestinationData(), fetchData.generateTripData()];
   Promise.all(fetches)
     .then(data => {
+      console.log(data)
       let allDestinationsData = data[0];
       let allTripsData = data[1];
-      let allUsersData = data[2];
     })
 }
 
@@ -51,3 +52,17 @@ function generateCurrentDate() {
   const year = rawDate.getFullYear();
   return `${year}/${month}/${day}`
 }
+
+function validateForm(event) {
+  event.preventDefault();
+  const userNameValue = document.getElementById('username').value;
+  const passwordValue = document.getElementById('password').value;
+  const regex = /^traveler([1-9]|[1-4]\d|50)$/;
+  if (passwordValue === 'travel2020' && regex.test(userNameValue)) {
+    generateSingleTravelerAPI(userNameValue);
+  } else {
+    domUpdates.displayFormError('success');
+  }
+  document.querySelector('.login-form').reset();
+}
+
