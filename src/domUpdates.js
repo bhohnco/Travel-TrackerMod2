@@ -1,10 +1,10 @@
 const domUpdates = {
-  today: null,
 
-  toggleView(viewToDisplay, viewToHide) {
-    viewToDisplay.classList.remove('hidden');
-    viewToHide.classList.add('hidden');
-  },
+  // toggleView(viewToDisplay, viewToHide) {
+  //   console.log("toggle")
+  //   viewToDisplay.classList.remove('hidden');
+  //   viewToHide.classList.add('hidden');
+  // },
 
   displayFormError(message) {
     let errorMsg = document.getElementById('error-msg')
@@ -37,8 +37,9 @@ const domUpdates = {
 
   greetTraveler(traveler) {
     let travelerDisplayName = document.getElementById('traveler-name');
-    travelerDisplayName.innerText = `Welcome back ${traveler.generateFirstName()}!`
+    travelerDisplayName.innerText = `Welcome back !`
   },
+  // ${traveler.generateFirstName()}
 
   displayTravelersTotalSpent(total) {
     let totalSpent = document.getElementById("total-spent-traveler");

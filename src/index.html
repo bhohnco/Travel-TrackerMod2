@@ -1,48 +1,52 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-  <title>Travel Tracker</title>
-  <link rel="logo icon" type="image/png" href="./images/yann-allegre-DlF0mqHKvkg-unsplash.jpg">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="UTF-8" name="description"
-        content="Travel Tracker is a trip reservation app that allows users to view previous trips, and add & delete trips">
-</head>
-<header>
-  <nav>
-    <button id="log-out-button" aria-label="Log out button" type="button">Log Out</button>
-  </nav>
-  <section class ="logo-area">
-    <h1>Welcome to Travel Tracker</h1>
-  </section>
-</header>
-<body>
-  <section class="login-view">
-    <h2>Log into Travel Tracker</h2>
-    <form class ="login-form">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" required class="login-area" aria-label='Text input area to enter your username'>
-      <label for="password">Password</label>
-      <input type="text" id="password" name="password" required class="login-area" aria-label='Text input area to enter your password'>
-      <input type="submit" value="Submit" id="login-submit">
-      <p id="error-msg" class="error"></p>
-    </form>
-  </section>
-  <main>
-    <section class="traveler-view hidden">
-      <h2 class="dash-form">Traveler Dashboard</h2>
-      <section class="dashboard">
-      <section class="traveler-info side-dash">
-        <h2>Your Trip History</h2>
-        <section class="search-results-view">
-          <p id="traveler-name"></p>
-          <p id="trip-total">Total spent on Trips:$<span id="total-spent-traveler"></span></p>
-          <p>Current Trips and Past</p>
-          <ol id="traveler-trip-list">
-          </ol>
+  <!DOCTYPE html>
+  <html lang="en-US">
+  <head>
+    <title>Travel Tracker</title>
+    <link rel="logo icon" type="image/png" href="./images/yann-allegre-DlF0mqHKvkg-unsplash.jpg">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" name="description"
+          content="Travel Tracker is a trip reservation app that allows users to view previous trips, and add & delete trips">
+  </head>
+  <header>
+    <nav>
+      <button id="log-out-button" aria-label="Log out button" type="button">Log Out</button>
+    </nav>
+    <section class ="logo-area">
+      <h1>Welcome to Travel Tracker</h1>
+    </section>
+  </header>
+  <body>
+    <section class="login-view ">
+      <h2>Log into Travel Tracker</h2>
+      <form class ="login-form">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required class="login-area" aria-label='Text input area to enter your username'>
+        <label for="password">Password</label>
+        <input type="text" id="password" name="password" required class="login-area" aria-label='Text input area to enter your password'>
+        <input type="submit" value="Submit" id="login-submit">
+        <p id="error-msg" class="error"></p>
+      </form>
+    </section>
+    <main>
+      <section class="traveler-view">
+        <h2 class="dash-form">Traveler Dashboard</h2>
+        <section class="dashboard">
+        <section class="traveler-info side-dash">
+          <h2>Your Trip History</h2>
+          <section class="search-results-view">
+            <p id="traveler-name"></p>
+            <p id="trip-total">Total spent on Trips:$<span id="total-spent-traveler"></span></p>
+            <p>Current Trips and Past</p>
+            <ol id="traveler-trip-list">
+            </ol>
+          </section>
+          </section>
         </section>
       </section>
-  </main>
-</body>
-
-</html>
+    </main>
+  </body>
+  </html>
 
