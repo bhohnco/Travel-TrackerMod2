@@ -15,6 +15,20 @@ const domUpdates = {
     }
   },
 
+  generateCurrentDate() {
+  const rawDate = new Date();
+  let day = rawDate.getDate();
+  if (day < 10) {
+    day = `0${day.toString()}`
+  }
+  let month = rawDate.getMonth() + 1;
+  if (month < 10) {
+    month = `0${month.toString()}`
+  }
+  const year = rawDate.getFullYear();
+  return `${year}/${month}/${day}`
+},
+
   setDateDefaults() {
     const searchBar = document.getElementById('traveler-date-search');
     searchBar.value = this.today.replace(/\//g, "-");
@@ -27,7 +41,8 @@ const domUpdates = {
   },
 
   displayTravelersTotalSpent(total) {
-    let totalSpent = document.getElementById("total-spent-traveler")
+    let totalSpent = document.getElementById("total-spent-traveler");
+    totalSpent.innerText = `You have spent $${total} in 2020`;
   }
 
 }
