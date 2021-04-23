@@ -37,9 +37,9 @@ const domUpdates = {
 
   greetTraveler(traveler) {
     let travelerDisplayName = document.getElementById('traveler-name');
-    travelerDisplayName.innerText = `Welcome back !`
+    travelerDisplayName.innerText = `Welcome back ${traveler.generateFirstName()}!`
   },
-  // ${traveler.generateFirstName()}
+
 
   displayTravelersTotalSpent(total) {
     let totalSpent = document.getElementById("total-spent-traveler");
