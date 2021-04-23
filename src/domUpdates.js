@@ -16,18 +16,18 @@ const domUpdates = {
   },
 
   generateCurrentDate() {
-  const rawDate = new Date();
-  let day = rawDate.getDate();
-  if (day < 10) {
-    day = `0${day.toString()}`
-  }
-  let month = rawDate.getMonth() + 1;
-  if (month < 10) {
-    month = `0${month.toString()}`
-  }
-  const year = rawDate.getFullYear();
-  return `${year}/${month}/${day}`
-},
+    const rawDate = new Date();
+    let day = rawDate.getDate();
+    if (day < 10) {
+      day = `0${day.toString()}`
+    }
+    let month = rawDate.getMonth() + 1;
+    if (month < 10) {
+      month = `0${month.toString()}`
+    }
+    const year = rawDate.getFullYear();
+    return `${year}/${month}/${day}`
+  },
 
   setDateDefaults() {
     const searchBar = document.getElementById('traveler-date-search');
