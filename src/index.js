@@ -6,7 +6,7 @@ import Trip from './Trip';
 import Destination from "./Destination";
 
 let currentTraveler, currentTravelerTrips, currentTravelerDestinations,
-  allTravelerData, allTravelerData, allDestinationsData, allTripsData;
+  allTravelerData, allDestinationsData, allTripsData;
 
 
 const loginButton = document.getElementById('login-submit');
@@ -14,18 +14,16 @@ const logOutButton = document.getElementById('log-out-button');
 const loginView = document.querySelector('.login-view');
 const userView = document.querySelector('.traveler-view');
 
-loginButton.addEventListener('click', validateLoginForm, console.log(currentTraveler));
-// logOutButton.addEventListener('click', logOut);
+loginButton.addEventListener('click', validateLoginForm);
+logOutButton.addEventListener('click', logOut);
 
 function generateSingleTravelerAPI(id) {
   fetchData.generateSingleTraveler(id)
     .then(data => {
-      console.log(data)
       if (data.id === undefined) {
         domUpdates.displayFormError(data.message)
       } else {
         currentTraveler = new Traveler(data);
-        console.log(currentTraveler)
         generateAPIData()
       }
     })
@@ -40,9 +38,10 @@ function generateAPIData() {
       allTripsData = data[2];
       filterAllTripsForTraveler(allTripsData)
       filterAllTravelDestinations()
-      console.log(allTripsData)
+      generateTravelerPendingTrips()
+      filterTravelerTripsByType()
       updateTravelerDash(currentTraveler)
-      console.log(currentTraveler)
+      displayTravelerTrips()
     })
 }
 
@@ -54,6 +53,7 @@ function validateLoginForm(event) {
   if (passwordValue === 'travel2020' && regex.test(userNameValue)) {
     let splitID = parseInt(userNameValue.slice(8));
     generateSingleTravelerAPI(splitID);
+    domUpdates.toggleView(userView, loginView)
   } else {
     domUpdates.displayFormError('success');
   }
@@ -61,23 +61,16 @@ function validateLoginForm(event) {
 }
 
 function updateTravelerDash (traveler) {
-  console.log(traveler)
   domUpdates.greetTraveler(traveler);
-  console.log(traveler)
-  // domUpdates.toggleView(loginView, userView)
-  // domUpdates.generateCurrentDate();
+  domUpdates.getTodaysDate();
   let tripFor2020 = traveler.generateTripsByYear(2020, currentTravelerTrips);
-  console.log(currentTravelerTrips)
   let tripCosts = traveler.generateTripCost(tripFor2020, currentTravelerDestinations);
-  console.log(tripCosts)
   let agentFees = traveler.generateAgentFees(tripCosts);
   let totalSpent = tripCosts + agentFees;
-  console.log(totalSpent);
   domUpdates.displayTravelersTotalSpent(totalSpent.toFixed(2))
 }
 
 function filterAllTripsForTraveler(allTripsData) {
-  console.log(allTripsData)
   let findTrips = allTripsData.trips.filter(trip => {
     return trip.userID === currentTraveler.id;
   })
@@ -87,7 +80,6 @@ function filterAllTripsForTraveler(allTripsData) {
 }
 
 function filterAllTravelDestinations() {
-  console.log(allDestinationsData)
   let locatedDestinations = []
   currentTravelerTrips.forEach(trip => {
     allDestinationsData.destinations.forEach(destination => {
@@ -102,7 +94,40 @@ function filterAllTravelDestinations() {
   })
 }
 
-// function logOut() {
-//   domUpdates.toggleView(loginView, userView);
-//   domUpdates.displayFormError('reset')
-// }
+function generateTravelerPendingTrips() {
+  currentTraveler.pendingTrips = [];
+  currentTravelerTrips.forEach(trip => {
+    if (trip.status === "pending") {
+      currentTraveler.addTravelerTrip('pendingTrips', trip);
+    }
+  })
+}
+
+function filterTravelerTripsByType() {
+  currentTraveler.pastTrips = [];
+  currentTraveler.upcomingTrips = [];
+  currentTraveler.currentTrips = [];
+  currentTravelerTrips.forEach(trip => {
+    let dateSplit = trip.date.split("/");
+    let startDate = new Date(dateSplit[0], (dateSplit[1] - 1), dateSplit[2]);
+    let tripEnd = startDate.setDate(startDate.getDate() + trip.duration);
+    let startInMil = new Date(dateSplit[0], (dateSplit[1] - 1), dateSplit[2]).getTime();
+    let today = new Date().getTime();
+    if (startInMil < today && today < tripEnd) {
+      currentTraveler.addTravelerTrip('currentTrips', trip);
+    } else if (startInMil > today) {
+      currentTraveler.addTravelerTrip('upcomingTrips', trip);
+    } else {
+      currentTraveler.addTravelerTrip('pastTrips', trip);
+    }
+  })
+}
+
+function displayTravelerTrips() {
+  domUpdates.displayPastTrips(currentTraveler, currentTravelerDestinations);
+}
+
+function logOut() {
+  domUpdates.toggleView(loginView, userView);
+  domUpdates.displayFormError('reset')
+}
