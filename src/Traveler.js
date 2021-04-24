@@ -19,7 +19,7 @@ class Traveler {
     return splitName[0];
   }
 
-  findTripInfo(tripType, tripObj) {
+  addTravelerTrip(tripType, tripObj) {
     this[tripType].push(tripObj)
   }
 
