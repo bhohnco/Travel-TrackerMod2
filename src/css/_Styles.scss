@@ -1,3 +1,6 @@
+@import "_Variables";
+@import "_Mixins";
+
 .hidden{
   display: none;
 }
@@ -9,4 +12,64 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-color: #464646;
+  font-family: 'Poppins', sans-serif;
+}
+
+#log-out-button {
+  background-color:$medium-gray;
+  border: none;
+  display: inline;
+  float: right;
+  height: 4.6vw;
+  top: 4px;
+  width: 20.6vw;
+}
+
+.login-view {
+  margin: 5% 30%;
+  background-color: $off-white-color;
+  opacity: 0.7;
+}
+
+.login-form {
+  font-size: 1.1em;
+  display: flex;
+  flex-direction: column;
+  padding: 1em 4em 3em 4em;
+}
+
+.login-field {
+  margin-top: .5em;
+  margin-bottom: 2em;
+}
+
+#login-submit{
+  font-size: 1.1em;
+  background-color: $medium-gray;
+  color: black;
+  height: 1.8em;
+  border-radius: .5em;
+}
+
+
+@media screen and (min-width: 992px) {
+  .login-view {
+    margin: 5% 10%;
+  }
+  .login-out-button {
+    height: 2.6vw;
+    width: 5.6vw;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .login-view {
+    margin: 3% 15%;
+  }
+
+}
+@media screen and (max-width: 600px) {
+  .login-view {
+    margin: 5% 8%;
+  }
 }
