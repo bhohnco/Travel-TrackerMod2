@@ -19,7 +19,7 @@
     </section>
   </header>
   <body>
-    <section class="login-view ">
+    <section class="login-view hidden">
       <h2>Log into Travel Tracker</h2>
       <form class ="login-form">
         <label for="username">Username</label>
@@ -31,19 +31,18 @@
       </form>
     </section>
     <main class ="container">
-      <section class="traveler-view hidden">
+      <section class="traveler-view ">
         <h2 class="dash-form">Traveler Dashboard</h2>
+        <p id="traveler-name"></p>
         <p class="todays-date"></p>
         <section class="dashboard">
           <section class="request-trip-container">
+            <h2 class="book-new-trip-title">Book a New Trip Here!!</h2>
             <div class="input-options">
-              <label for="select-date">Select Start Date:</label>
-              <input type="date" class="select-date input" name="select-date" min="2021-01-01" max="2030-12-31" />
-              <label for="enter-duration">Duration (in days):</label>
-              <input type="number" class="enter-duration input" name="enter-duration" min="1" placeholder="Duration" /></label>
-              <label for="number-travelers">Travelers:</label>
-              <input type="number" class="number-travelers input" name="number-travelers" min="1" placeholder="Travelers" /></label>
-              <label for="possible-destination">Choose A Destination:
+              <label>Select Start Date:<input type="date" class="select-date input" name="select-date" min="2021-01-01" max="2030-12-31" /></label>
+              <label>Duration (in days):<input type="number" class="enter-duration input" name="enter-duration" min="1" placeholder="Duration" /></label>
+              <label>Travelers:<input type="number" class="number-travelers input" name="number-travelers" min="1" placeholder="Travelers" /></label>
+              <label>Choose A Destination:
                 <select class="possible-destination input" name="possible-destination">
                   <option class="option" value="0">
                     Choose Destination
@@ -53,14 +52,13 @@
             </div>
             <div class="new-trip-cost hidden"></div>
             <div class="button-wrapper">
-              <label for="calc-cost"><input type="submit" class="calc-cost" name="calc-cost" value="Calculate Trip Cost" disabled /></label>
-              <label for="submit"><input type="submit" class="submit-request" name="submit" value="Submit Request" disabled /></label>
+              <label><input type="submit" class="calc-cost" name="calc-cost" value="Calculate Trip Cost" disabled/></label>
+              <label><input type="submit" class="submit-request" name="submit" value="Submit Request" disabled/></label>
             </div>
           </section>
         <section class="traveler-info side-dash">
           <h2>Your Trip History</h2>
-          <section class="search-results-view">
-            <p id="traveler-name"></p>
+          <section class="trip-results-view">
             <p id="trip-total">Total spent on Trips:$<span id="total-spent-traveler"></span></p>
             <section class="trip-container">
               <section class="upcoming-trips">
