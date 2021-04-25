@@ -35,13 +35,63 @@
         <h2 class="dash-form">Traveler Dashboard</h2>
         <p class="todays-date"></p>
         <section class="dashboard">
+        <section>
+        <label for="destination-dropdown" class="input-form">Choose A Destination:</label>
+        <select id="destination-dropdown"
+                class="destination-picker input-form" accesskey="i"
+                aria-describedby="This is your destination dropdown picker"
+                name="destination-dropdown">
+          <option value=22 selected></option>
+        </select>
+        <br>
+        <label for="travelers-number-dropdown" class="home-input">
+          Choose Number Of Travelers:
+        </label>
+        <select id="travelers-number-dropdown" name="travelers-number-dropdown"
+                class="travelers-number-picker input-form" accesskey="j"
+                aria-describedby="This is your travelers number dropdown">
+          <option value=1>1 Travelers</option>
+          <option value=2 selected>2 Travelers</option>
+          <option value=3>3 Travelers</option>
+          <option value=4>4 Travelers</option>
+          <option value=5>5 Travelers</option>
+          <option value=6>6 Travelers</option>
+          <option value=7>7 Travelers</option>
+          <option value=8>8 Travelers</option>
+          <option value=9>9 Travelers</option>
+          <option value=10>10 Travelers</option>
+          <option value=11>11 Travelers</option>
+          <option value=12>12 Travelers</option>
+          <option value=13>13 Travelers</option>
+          <option value=14>14 Travelers</option>
+        </select>
+        <section class="duration-picker">
+          <form action="/action_page.php"
+                class="travelers-duration-picker input-form">
+            <label for="quantity" class=" home-input travelers-duration-picker travelers-duration-title">
+              Days wanting to travel (between 1 and 60): </label>
+            <input type="number" id="quantity" class="travelers-duration-picker travelers-duration-slider input-form"
+                    name="quantity" min="1" max="60" accesskey="k"
+                    aria-describedby="This is your travelers duration picker"
+            <option value=7 selected></option>
+          </form>
+        </section>
+        </section>
         <section class="traveler-info side-dash">
           <h2>Your Trip History</h2>
           <section class="search-results-view">
             <p id="traveler-name"></p>
             <p id="trip-total">Total spent on Trips:$<span id="total-spent-traveler"></span></p>
-            <p>Past Trip Information</p>
+            <section class="trip-container">
+              <p>Upcoming Trip Information</p>
+            <div class="upcoming-trips-container">
+              <p>Pending Trip Information</p>
+              <div class="pending-trips-container">
+                <p>Current Trip Information</p>
+                <div class="current-trips-container">
+              <p>Past Trip Information</p>
             <div class="past-trips-container">
+            </section>
           </section>
           </section>
         </section>
