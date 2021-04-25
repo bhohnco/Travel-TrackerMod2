@@ -13,6 +13,7 @@ const loginButton = document.getElementById('login-submit');
 const logOutButton = document.getElementById('log-out-button');
 const loginView = document.querySelector('.login-view');
 const userView = document.querySelector('.traveler-view');
+const destinationPicker = document.querySelector(".destination-picker");
 
 loginButton.addEventListener('click', validateLoginForm);
 logOutButton.addEventListener('click', logOut);
@@ -36,12 +37,13 @@ function generateAPIData() {
       allTravelerData = data[0]
       allDestinationsData = data[1];
       allTripsData = data[2];
-      filterAllTripsForTraveler(allTripsData)
-      filterAllTravelDestinations()
-      generateTravelerPendingTrips()
-      filterTravelerTripsByType()
-      updateTravelerDash(currentTraveler)
-      displayTravelerTrips()
+      domUpdates.generateDestinationPicker(allDestinationsData)
+      filterAllTripsForTraveler(allTripsData);
+      filterAllTravelDestinations();
+      generateTravelerPendingTrips();
+      filterTravelerTripsByType();
+      updateTravelerDash(currentTraveler);
+      displayTravelerTrips();
     })
 }
 
@@ -125,9 +127,9 @@ function filterTravelerTripsByType() {
 
 function displayTravelerTrips() {
   domUpdates.displayPastTrips(currentTraveler, currentTravelerDestinations);
-  domUpdates.displayUpcomingTrips(currentTraveler, currentTravelerDestinations);
-  domUpdates.displayPendingTrips(currentTraveler, currentTravelerDestinations);
-  domUpdates.displayCurrentTrips(currentTraveler, currentTravelerDestinations);
+  // domUpdates.displayUpcomingTrips(currentTraveler, currentTravelerDestinations);
+  // domUpdates.displayPendingTrips(currentTraveler, currentTravelerDestinations);
+  // domUpdates.displayCurrentTrips(currentTraveler, currentTravelerDestinations);
 }
 
 function logOut() {
