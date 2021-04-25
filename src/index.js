@@ -74,8 +74,8 @@ function validateLoginForm(event) {
 function updateTravelerDash (traveler) {
   domUpdates.greetTraveler(traveler);
   domUpdates.getTodaysDate();
-  let tripFor2020 = traveler.generateTripsByYear(2020, currentTravelerTrips);
-  let tripCosts = traveler.generateTripCost(tripFor2020, currentTravelerDestinations);
+  let tripFor2021 = traveler.generateTripsByYear(2021, currentTravelerTrips);
+  let tripCosts = traveler.generateTripCost(tripFor2021, currentTravelerDestinations);
   let agentFees = traveler.generateAgentFees(tripCosts);
   let totalSpent = tripCosts + agentFees;
   domUpdates.displayTravelersTotalSpent(totalSpent.toFixed(2))
@@ -136,9 +136,9 @@ function filterTravelerTripsByType() {
 
 function displayTravelerTrips() {
   domUpdates.displayPastTrips(currentTraveler, currentTravelerDestinations);
-  // domUpdates.displayUpcomingTrips(currentTraveler, currentTravelerDestinations);
+  domUpdates.displayUpcomingTrips(currentTraveler, currentTravelerDestinations);
   domUpdates.displayPendingTrips(currentTraveler, currentTravelerDestinations);
-  // domUpdates.displayCurrentTrips(currentTraveler, currentTravelerDestinations);
+  domUpdates.displayCurrentTrips(currentTraveler, currentTravelerDestinations);
 }
 
 function retrieveNewTripCost() {
