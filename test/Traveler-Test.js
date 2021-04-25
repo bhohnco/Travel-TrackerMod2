@@ -94,16 +94,16 @@ describe('Traveler', function () {
     });
 
     it('should be able to generate array of trips given the array property name', () => {
-      traveler1.findTripInfo('currentTrips', trip1);
+      traveler1.addTravelerTrip('currentTrips', trip1);
       expect(traveler1.currentTrips).to.deep.equal([trip1]);
 
-      traveler3.findTripInfo('upcomingTrips', trip3);
+      traveler3.addTravelerTrip('upcomingTrips', trip3);
       expect(traveler3.upcomingTrips).to.deep.equal([trip3])
 
-      traveler2.findTripInfo('pendingTrips', trip2);
+      traveler2.addTravelerTrip('pendingTrips', trip2);
       expect(traveler2.pendingTrips).to.deep.equal([trip2])
 
-      traveler2.findTripInfo('pastTrips', trip3);
+      traveler2.addTravelerTrip('pastTrips', trip3);
       expect(traveler2.pastTrips).to.deep.equal([trip3])
     });
 

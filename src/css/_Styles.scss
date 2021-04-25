@@ -1,0 +1,131 @@
+@import "_Variables";
+@import "_Mixins";
+
+.hidden{
+  display: none;
+}
+
+body {
+  background-image: url("../images/yann-allegre-DlF0mqHKvkg-unsplash.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  font-family: 'Poppins', sans-serif;
+}
+
+#log-out-button {
+  background-color:$medium-gray;
+  border: none;
+  display: inline;
+  float: right;
+  height: 4.6vw;
+  top: 4px;
+  width: 20.6vw;
+}
+
+.login-view {
+  margin: 5% 30%;
+  background-color: $off-white-color;
+  opacity: 0.7;
+}
+
+.login-form {
+  font-size: 1.1em;
+  display: flex;
+  flex-direction: column;
+  padding: 1em 4em 3em 4em;
+}
+
+.login-field {
+  margin-top: .5em;
+  margin-bottom: 2em;
+}
+
+#login-submit{
+  font-size: 1.1em;
+  background-color: $medium-gray;
+  color: black;
+  height: 1.8em;
+  border-radius: .5em;
+}
+
+.container{
+  margin: 0 46px;
+}
+
+.grid-container {
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+}
+
+.grid {
+  box-shadow: 0 0 6px 2px rgba(148, 147, 147, 0.71);
+  display: grid;
+  grid-template-rows: 35% 65%;
+  height: 450px;
+}
+
+.top-row {
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px;
+}
+
+.lower-card {
+  align-items: flex-start;
+  background-color: #EBF2FA;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.card-text>h3 {
+  color: #05668D;
+  font-size: 20px;
+  line-height: 1;
+  margin: 0;
+}
+
+.card-text>h4 {
+  font-size: 13px;
+  margin: 0;
+}
+
+//.trip-destination {
+//  color: #0f5479;
+//  font-size: 35px;
+//}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+}
+
+
+@media screen and (min-width: 992px) {
+  .login-view {
+    margin: 5% 10%;
+  }
+  .login-out-button {
+    height: 2.6vw;
+    width: 5.6vw;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .login-view {
+    margin: 3% 15%;
+  }
+
+}
+@media screen and (max-width: 600px) {
+  .login-view {
+    margin: 5% 8%;
+  }
+}
