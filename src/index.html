@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8" name="description"
           content="Travel Tracker is a trip reservation app that allows users to view previous trips, and add & delete trips">
   </head>
@@ -30,16 +30,19 @@
         <p id="error-msg" class="error"></p>
       </form>
     </section>
-    <main>
+    <main class ="container">
       <section class="traveler-view hidden">
         <h2 class="dash-form">Traveler Dashboard</h2>
         <p class="todays-date"></p>
         <section class="dashboard">
           <section class="request-trip-container">
             <div class="input-options">
-              <label for="select-date">Select Start Date:<input type="date" class="select-date input" name="select-date" min="2021-01-01" max="2030-12-31" /></label>
-              <label for="enter-duration">Duration (in days):<input type="number" class="enter-duration input" name="enter-duration" min="1" placeholder="Duration" /></label>
-              <label for="number-travelers">Travelers:<input type="number" class="number-travelers input" name="number-travelers" min="1" placeholder="Travelers" /></label>
+              <label for="select-date">Select Start Date:</label>
+              <input type="date" class="select-date input" name="select-date" min="2021-01-01" max="2030-12-31" />
+              <label for="enter-duration">Duration (in days):</label>
+              <input type="number" class="enter-duration input" name="enter-duration" min="1" placeholder="Duration" /></label>
+              <label for="number-travelers">Travelers:</label>
+              <input type="number" class="number-travelers input" name="number-travelers" min="1" placeholder="Travelers" /></label>
               <label for="possible-destination">Choose A Destination:
                 <select class="possible-destination input" name="possible-destination">
                   <option class="option" value="0">
@@ -60,14 +63,26 @@
             <p id="traveler-name"></p>
             <p id="trip-total">Total spent on Trips:$<span id="total-spent-traveler"></span></p>
             <section class="trip-container">
+              <section class="upcoming-trips">
               <p>Upcoming Trip Information</p>
               <div class="upcoming-trips-container">
+              </div>
+              </section>
+              <section class="pending-trips">
               <p>Pending Trip Information</p>
               <div class="pending-trips-container">
+              </div>
+              </section>
+              <section class="current-trips">
                 <p>Current Trip Information</p>
                 <div class="current-trips-container">
+                </div>
+              </section>
+              <section class="past-trips">
               <p>Past Trip Information</p>
               <div class="past-trips-container">
+              </div>
+              </section>
             </section>
           </section>
           </section>
