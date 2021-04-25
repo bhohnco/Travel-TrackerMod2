@@ -35,11 +35,24 @@ const domUpdates = {
     totalSpent.innerText = `You have spent $${total} in 2020`;
   },
 
+  generateDestinationPicker(destinations) {
+    let destinationsInput = document.querySelector(".possible-destination");
+    destinations.destinations.forEach(dest => {
+      let destinationOption = `
+      <option value="${dest.id}">
+        ${dest.destination}
+      </option>
+      `
+      destinationsInput.insertAdjacentHTML("beforeend", destinationOption);
+    })
+  },
+
+
   displayPastTrips(traveler, destinations) {
     let past = document.querySelector(".past-trips-container");
     past.innerHTML = "";
     if (traveler.pastTrips[0] === undefined) {
-      past.innerHTML = `<p>You don't have any past trips, fill out the form above to plan your next trip!!</p>`
+      past.innerHTML = `<p>You don't have any past trips, start planning your next trip now!</p>`
     } else {
       traveler.pastTrips.forEach(trip => {
         let foundDest = findDestinationBasedOnTrip(trip, destinations);
@@ -61,7 +74,92 @@ const domUpdates = {
     </article>`
       })
     }
-  }
+  },
+
+  // displayUpcomingTrips(traveler, destinations) {
+  //   let upcoming = document.querySelector(".upcoming-trips-container");
+  //   upcoming.innerHTML = "";
+  //   if (traveler.upcomingTrips[0] === undefined) {
+  //     upcoming.innerHTML = `<p>You don't have any upcoming trips, start planning your next trip now!</p>`
+  //   } else {
+  //     traveler.upcomingTrips.forEach(trip => {
+  //       let foundDest = findDestinationBasedOnTrip(trip, destinations);
+  //       let splitDestName = foundDest.destination.split(", ");
+  //       let dateSplit = trip.date.split("/");
+  //       upcoming.innerHTML += `<section class="grid-container">
+  //    <article class="grid">
+  //     <section class="card top-row">
+  //       <img src="${foundDest.image}" alt="${foundDest.alt}">
+  //     </section>
+  //     <section class="lower-card">
+  //       <div class="card-text">
+  //         <h4 class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</h4>
+  //         <p class="date">Trip start date: ${dateSplit[1]}/${dateSplit[2]}/${dateSplit[0]}</p>
+  //       </div>
+  //       <p class="Duration">Duration of of trip: ${trip.duration}</p>
+  //       <p class="Number"> Number of travelers: ${trip.travelers}</p>
+  //     </section>
+  //   </article>`
+  //     })
+  //   }
+  // },
+
+  // displayPendingTrips(traveler, destinations) {
+  //   let pending = document.querySelector(".pending-trips-container");
+  //   pending.innerHTML = "";
+  //   if (traveler.pendingTrips[0] === undefined) {
+  //     pending.innerHTML = `<p>You don't have any pending trips, start planning your next trip now!</p>`
+  //   } else {
+  //     traveler.pendingTrips.forEach(trip => {
+  //       let foundDest = findDestinationBasedOnTrip(trip, destinations);
+  //       let splitDestName = foundDest.destination.split(", ");
+  //       let dateSplit = trip.date.split("/");
+  //       pending.innerHTML += `<section class="grid-container">
+  //  <article class="grid">
+  //   <section class="card top-row">
+  //     <img src="${foundDest.image}" alt="${foundDest.alt}">
+  //   </section>
+  //   <section class="lower-card">
+  //     <div class="card-text">
+  //       <h4 class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</h4>
+  //       <p class="date">Trip start date: ${dateSplit[1]}/${dateSplit[2]}/${dateSplit[0]}</p>
+  //     </div>
+  //     <p class="Duration">Duration of of trip: ${trip.duration}</p>
+  //     <p class="Number"> Number of travelers: ${trip.travelers}</p>
+  //   </section>
+  // </article>`
+  //     })
+  //   }
+  // },
+
+  //   displayCurrentTrips(traveler, destinations) {
+  //     let current = document.querySelector(".current-trips-container");
+  //     current.innerHTML = "";
+  //     if (traveler.currentTrips[0] === undefined) {
+  //       current.innerHTML = `<p>You don't have any current trips, start planning your next trip now!</p>`
+  //     } else {
+  //       traveler.currentTrips.forEach(trip => {
+  //         let foundDest = findDestinationBasedOnTrip(trip, destinations);
+  //         let splitDestName = foundDest.destination.split(", ");
+  //         let dateSplit = trip.date.split("/");
+  //         current.innerHTML += `<section class="grid-container">
+  //    <article class="grid">
+  //     <section class="card top-row">
+  //       <img src="${foundDest.image}" alt="${foundDest.alt}">
+  //     </section>
+  //     <section class="lower-card">
+  //       <div class="card-text">
+  //         <h4 class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</h4>
+  //         <p class="date">Trip start date: ${dateSplit[1]}/${dateSplit[2]}/${dateSplit[0]}</p>
+  //       </div>
+  //       <p class="Duration">Duration of of trip: ${trip.duration}</p>
+  //       <p class="Number"> Number of travelers: ${trip.travelers}</p>
+  //     </section>
+  //   </article>`
+  //       })
+  //     }
+  //   }
+  // }
 }
 
 function findDestinationBasedOnTrip(trip, destinations) {
