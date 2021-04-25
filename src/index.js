@@ -125,6 +125,9 @@ function filterTravelerTripsByType() {
 
 function displayTravelerTrips() {
   domUpdates.displayPastTrips(currentTraveler, currentTravelerDestinations);
+  domUpdates.displayUpcomingTrips(currentTraveler, currentTravelerDestinations);
+  domUpdates.displayPendingTrips(currentTraveler, currentTravelerDestinations);
+  domUpdates.displayCurrentTrips(currentTraveler, currentTravelerDestinations);
 }
 
 function logOut() {
