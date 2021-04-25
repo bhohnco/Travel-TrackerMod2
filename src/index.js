@@ -49,7 +49,7 @@ function generateAPIData() {
       domUpdates.generateDestinationPicker(allDestinationsData)
       filterAllTripsForTraveler(allTripsData);
       filterAllTravelDestinations();
-      // generateTravelerPendingTrips();
+      generateTravelerPendingTrips();
       filterTravelerTripsByType();
       updateTravelerDash(currentTraveler);
       displayTravelerTrips();
@@ -141,7 +141,6 @@ function displayTravelerTrips() {
   // domUpdates.displayCurrentTrips(currentTraveler, currentTravelerDestinations);
 }
 
-
 function retrieveNewTripCost() {
   newTravelerTrip = allTripsData.trips.length + 1;
   plannedTrip = instantiateNewTrip();
@@ -153,6 +152,32 @@ function retrieveNewTripCost() {
   let tripWithAgentFee = plannedTrip.cost + currentTraveler.generateAgentFees(plannedTrip.cost);
   let totalForTrip = tripWithAgentFee.toFixed(2);
   domUpdates.displayNewTripCost(totalForTrip, allInputs);
+}
+
+function instantiateNewTrip() {
+  let date = document.querySelector(".select-date").value.split("-");
+  let dateCorrect = `${date[0]}/${date[1]}/${date[2]}`
+  let duration = parseInt(document.querySelector(".enter-duration").value);
+  let travelers = parseInt(document.querySelector(".number-travelers").value);
+  let destination = parseInt(document.querySelector(".possible-destination").value);
+  tripObject = {};
+  tripObject = {
+    id: newTravelerTrip,
+    userID: currentTraveler.id,
+    destinationID: destination,
+    travelers,
+    date: dateCorrect,
+    duration,
+    status: "pending",
+    suggestedActivities: []
+  }
+  return new Trip(tripObject);
+}
+
+function checkIfFormFilledOut() {
+  if (allInputs[1].value !== "" && allInputs[2].value !== "") {
+    calcNewTripCost.disabled = false;
+  }
 }
 
 function submitRequest() {
