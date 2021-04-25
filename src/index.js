@@ -6,17 +6,26 @@ import Trip from './Trip';
 import Destination from "./Destination";
 
 let currentTraveler, currentTravelerTrips, currentTravelerDestinations,
-  allTravelerData, allDestinationsData, allTripsData;
+  allTravelerData, allDestinationsData, allTripsData, tripObject,
+  newTravelerTrip, plannedTrip;
 
-
+const allInputs = document.querySelectorAll('.input');
 const loginButton = document.getElementById('login-submit');
 const logOutButton = document.getElementById('log-out-button');
 const loginView = document.querySelector('.login-view');
 const userView = document.querySelector('.traveler-view');
-const destinationPicker = document.querySelector(".destination-picker");
+const calcNewTripCost = document.querySelector(".calc-cost");
+const submitTripRequest = document.querySelector(".submit-request");
 
+calcNewTripCost.addEventListener("click", retrieveNewTripCost);
 loginButton.addEventListener('click', validateLoginForm);
 logOutButton.addEventListener('click', logOut);
+submitTripRequest.addEventListener("click", submitRequest);
+allInputs.forEach(input => {
+  input.addEventListener("keyup", checkIfFormFilledOut);
+  input.addEventListener("click", checkIfFormFilledOut);
+})
+
 
 function generateSingleTravelerAPI(id) {
   fetchData.generateSingleTraveler(id)
@@ -40,7 +49,7 @@ function generateAPIData() {
       domUpdates.generateDestinationPicker(allDestinationsData)
       filterAllTripsForTraveler(allTripsData);
       filterAllTravelDestinations();
-      generateTravelerPendingTrips();
+      // generateTravelerPendingTrips();
       filterTravelerTripsByType();
       updateTravelerDash(currentTraveler);
       displayTravelerTrips();
@@ -128,8 +137,27 @@ function filterTravelerTripsByType() {
 function displayTravelerTrips() {
   domUpdates.displayPastTrips(currentTraveler, currentTravelerDestinations);
   // domUpdates.displayUpcomingTrips(currentTraveler, currentTravelerDestinations);
-  // domUpdates.displayPendingTrips(currentTraveler, currentTravelerDestinations);
+  domUpdates.displayPendingTrips(currentTraveler, currentTravelerDestinations);
   // domUpdates.displayCurrentTrips(currentTraveler, currentTravelerDestinations);
+}
+
+
+function retrieveNewTripCost() {
+  newTravelerTrip = allTripsData.trips.length + 1;
+  plannedTrip = instantiateNewTrip();
+  allDestinationsData.destinations.forEach(dest => {
+    if (dest.id === plannedTrip.destinationID) {
+      plannedTrip.generateCostOfTravelersTrips(dest);
+    }
+  });
+  let tripWithAgentFee = plannedTrip.cost + currentTraveler.generateAgentFees(plannedTrip.cost);
+  let totalForTrip = tripWithAgentFee.toFixed(2);
+  domUpdates.displayNewTripCost(totalForTrip, allInputs);
+}
+
+function submitRequest() {
+  fetchData.generateNewTripForTraveler(tripObject)
+    .then(generateAPIData());
 }
 
 function logOut() {
