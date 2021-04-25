@@ -27,7 +27,7 @@ const domUpdates = {
 
   displayTravelersTotalSpent(total) {
     let totalSpent = document.getElementById("total-spent-traveler");
-    totalSpent.innerText = `You have spent $${total} in 2020`;
+    totalSpent.innerText = `You have spent $${total} in 2021`;
   },
 
   generateDestinationPicker(destinations) {
@@ -62,7 +62,7 @@ const domUpdates = {
       past.innerHTML = `<p>You don't have any past trips, start planning your next trip now!</p>`
     } else {
       traveler.pastTrips.forEach(trip => {
-        let foundDest = findDestinationBasedOnTrip(trip, destinations);
+        let foundDest = destinations.find(destination => destination.id === trip.destinationID);
         let splitDestName = foundDest.destination.split(", ");
         let dateSplit = trip.date.split("/");
         past.innerHTML += `<section class="grid-container">
@@ -90,7 +90,7 @@ const domUpdates = {
       upcoming.innerHTML = `<p>You don't have any upcoming trips, start planning your next trip now!</p>`
     } else {
       traveler.upcomingTrips.forEach(trip => {
-        let foundDest = findDestinationBasedOnTrip(trip, destinations);
+        let foundDest = destinations.find(destination => destination.id === trip.destinationID);
         let splitDestName = foundDest.destination.split(", ");
         let dateSplit = trip.date.split("/");
         upcoming.innerHTML += `<section class="grid-container">
@@ -118,7 +118,7 @@ const domUpdates = {
       pending.innerHTML = `<p>You don't have any pending trips, start planning your next trip now!</p>`
     } else {
       traveler.pendingTrips.forEach(trip => {
-        let foundDest = findDestinationBasedOnTrip(trip, destinations);
+        let foundDest = destinations.find(destination => destination.id === trip.destinationID);
         let splitDestName = foundDest.destination.split(", ");
         let dateSplit = trip.date.split("/");
         pending.innerHTML += `<section class="grid-container">
@@ -146,7 +146,7 @@ const domUpdates = {
       current.innerHTML = `<p>You don't have any current trips, start planning your next trip now!</p>`
     } else {
       traveler.currentTrips.forEach(trip => {
-        let foundDest = findDestinationBasedOnTrip(trip, destinations);
+        let foundDest = destinations.find(destination => destination.id === trip.destinationID);
         let splitDestName = foundDest.destination.split(", ");
         let dateSplit = trip.date.split("/");
         current.innerHTML += `<section class="grid-container">
@@ -167,10 +167,5 @@ const domUpdates = {
     }
   }
 }
-
-function findDestinationBasedOnTrip(trip, destinations) {
-  return destinations.find(destination => destination.id === trip.destinationID);
-}
-  
 
 export default domUpdates;
