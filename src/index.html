@@ -19,9 +19,9 @@
     </section>
   </header>
   <body>
-    <section class="login-view hidden">
+    <section class="login-view">
       <h2>Log into Travel Tracker</h2>
-      <form class ="login-form">
+      <form class ="login-form hidden">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" required class="login-area" aria-label='Text input area to enter your username'>
         <label for="password">Password</label>
@@ -31,12 +31,13 @@
       </form>
     </section>
     <main class ="container">
-      <section class="traveler-view ">
+      <section class="traveler-view">
         <h2 class="dash-form">Traveler Dashboard</h2>
         <p id="traveler-name"></p>
         <p class="todays-date"></p>
         <section class="dashboard">
           <section class="request-trip-container">
+            <form action ="">
             <h2 class="book-new-trip-title">Book a New Trip Here!!</h2>
             <div class="input-options">
               <label>Select Start Date:<input type="date" class="select-date input" name="select-date" min="2021-01-01" max="2030-12-31" /></label>
@@ -50,6 +51,7 @@
                 </select>
               </label>
             </div>
+            </form>
             <div class="new-trip-cost hidden"></div>
             <div class="button-wrapper">
               <label><input type="submit" class="calc-cost" name="calc-cost" value="Calculate Trip Cost" disabled/></label>
