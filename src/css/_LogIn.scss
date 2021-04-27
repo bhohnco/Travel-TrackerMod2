@@ -15,6 +15,12 @@
   margin: 5% 30%;
   background-color: $off-white-color;
   opacity: 0.7;
+  font-size: 1.1em;
+}
+
+.login-view>h2 {
+  font-size: 1.5em;
+  color: $darkBlue-color;
 }
 
 .login-form {
