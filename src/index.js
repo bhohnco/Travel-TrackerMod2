@@ -6,8 +6,7 @@ import Trip from './Trip';
 import Destination from "./Destination";
 
 let currentTraveler, currentTravelerTrips, currentTravelerDestinations,
-  allTravelerData, allDestinationsData, allTripsData, tripObject,
-  newTravelerTrip, plannedTrip;
+  allDestinationsData, allTripsData, tripObject, newTravelerTrip, plannedTrip;
 
 const allInputs = document.querySelectorAll('.input');
 const loginButton = document.getElementById('login-submit');
@@ -40,7 +39,7 @@ function generateSingleTravelerAPI(id) {
 }
 
 function generateAPIData() {
-  const fetches = [ fetchData.generateDestinationData(), fetchData.generateTripData()];
+  const fetches = [fetchData.generateDestinationData(), fetchData.generateTripData()];
   Promise.all(fetches)
     .then(data => {
       allDestinationsData = data[0];
