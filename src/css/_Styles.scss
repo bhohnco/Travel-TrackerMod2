@@ -19,9 +19,23 @@
 }
 
 h1 {
+  @include font-style-size($headline-font, 2.7em);
+  color: $darkBlue-color;
+  //width: 100%;
+  height: 100px;
+  //display: flex;
+  justify-content: center;
+  //align-items: center;
+}
+
+h2 {
   @include font-style-size($headline-font, 2.5em);
-  color: $primary-color;
-  margin-left: 1.7em;
+  color: $lightYellow;
+}
+
+.dash-form{
+  @include font-style-size($headline-font, 2.5em);
+  color: $darkBlue-color;
 }
 
 body {
@@ -39,7 +53,7 @@ body {
   }
 
  .todays-date{
-  background-color: #5e7c91;;
+  background-color: $medium-gray;
 }
 
 .request-trip-container{
@@ -63,9 +77,9 @@ body {
   word-wrap: break-word;
 }
 
-.button-wrapper {
-  @include flex(row);
-}
+//.button-wrapper {
+//  @include flex(row);
+//}
 
 label {
   align-self: center;
@@ -87,19 +101,20 @@ label {
   border-radius: 5px;
 }
 
-.grid {
-  box-shadow: 0 0 6px 2px rgb(255, 227, 129);
-  display: grid;
-  grid-template-rows: 35% 43%;
-  height: 450px;
-}
-
 .grid-container {
   @include flex(row);
   display: grid;
   grid-gap: 12px;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
 
+}
+
+.grid {
+  box-shadow: 0 0 6px 2px rgb(255, 227, 129);
+  display: flex;
+  flex-direction: column;
+  grid-template-rows: 35% 43%;
+  height: 373px;
 }
 
 .top-row {
@@ -118,7 +133,8 @@ label {
   //justify-content: space-between;
   padding: 15px;
 }
-
+//viewport VH
+//viewport VW 30 for VW 30 30 square
 //20vhX20vw
 //image:contain
 //
@@ -130,6 +146,10 @@ img {
 //img:hover {
 //  height: 45px;
 //}
+h4 {
+  font-size: 20px;
+  color: $lightYellow;
+}
 
 .card-text>h3 {
   color: $darkBlue-color;
@@ -149,9 +169,10 @@ img {
 }
 
 p{
-  color: $darkBlue-color;
+  color: $lightYellow;
   font-size: 1.0em;
   background-color: #5e7c91;
+  border-radius: 2px;
 }
 
 .hidden {
@@ -196,6 +217,7 @@ p{
     }
 
   }
+
   @media screen and (max-width: 600px) {
     .login-view {
       margin: 5% 8%;
@@ -209,10 +231,16 @@ p{
     }
 
     h1 {
-      @include font-style-size($headline-font, 2.2em);
-      color: $primary-color;
+      @include font-style-size($headline-font, 2.7em);
+      color: $darkBlue-color;
       margin-left: 1.7em;
+      width: 100%;
+      height: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
 
     .input-options {
       display: grid;
@@ -220,6 +248,5 @@ p{
       width: 50vw;
       justify-self: center;
     }
-
   }
 
