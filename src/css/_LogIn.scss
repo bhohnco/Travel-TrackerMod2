@@ -1,0 +1,39 @@
+#log-out-button {
+  background-color:$primary-color;
+  color: #38a2ea;
+  border: none;
+  display: inline;
+  float: right;
+  height: 4.6vw;
+  margin-top: 15px;
+  width: 18.6vw;
+  margin-right: 11px;
+  border-radius: 5px;
+}
+
+.login-view {
+  margin: 5% 30%;
+  background-color: $off-white-color;
+  opacity: 0.7;
+}
+
+.login-form {
+  color:$primary-color;
+  font-size: 1.1em;
+  display: flex;
+  flex-direction: column;
+  padding: 1em 4em 3em 4em;
+}
+
+.login-area{
+  color:$primary-color;
+  margin-top: .5em;
+}
+
+#login-submit{
+  font-size: 1.1em;
+  background-color: $primary-color;
+  color: #38a2ea;
+  height: 1.8em;
+  border-radius: .5em;
+}
