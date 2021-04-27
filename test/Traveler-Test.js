@@ -10,7 +10,7 @@ const destinationTestingData = sampleTestingData.destinationTestingData;
 
 describe('Traveler', function () {
   let traveler1, traveler2, traveler3, trip1, trip2, trip3, trip4,
-    destination1, destination2, destination3, tripsTestGroup, destinationsTestGroup;
+    destination1, destination3, tripsTestGroup;
 
   beforeEach(() => {
     traveler1 = new Traveler(travelerTestingData[0]);
@@ -21,10 +21,8 @@ describe('Traveler', function () {
     trip3 = new Trip(tripTestingData[2]);
     trip4 = new Trip(tripTestingData[3]);
     destination1 = new Destination(destinationTestingData[0]);
-    destination2 = new Destination(destinationTestingData[1]);
     destination3 = new Destination(destinationTestingData[2]);
     tripsTestGroup = [trip1, trip3, trip4];
-    destinationsTestGroup = [destination1, destination2, destination3];
   });
 
   it('should be a function', () => {
