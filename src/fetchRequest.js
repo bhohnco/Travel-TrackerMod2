@@ -1,3 +1,5 @@
+import domUpdates from "./domUpdates";
+
 let fetchData = {
 
   generateSingleTraveler(travelerId) {
@@ -5,6 +7,7 @@ let fetchData = {
       .then(response => response.json())
       .catch(err => {
         console.log(err, "Data error for single traveler fetch")
+        domUpdates.displayAPIError();
       })
   },
 
@@ -13,6 +16,7 @@ let fetchData = {
       .then(response => response.json())
       .catch(err => {
         console.log(err, "Data error for destination fetch")
+        domUpdates.displayAPIError();
       })
   },
 
@@ -21,6 +25,7 @@ let fetchData = {
       .then(response => response.json())
       .catch(err => {
         console.log(err, "Data error for trip fetch")
+        domUpdates.displayAPIError();
       })
   },
       
@@ -51,7 +56,8 @@ let fetchData = {
     })
       .then(response => response.json())
       .catch(err => {
-        console.log(err, "Sorry! We are having trouble getting the data, try again later!")
+        console.log(err, "Data error for booking traveler trip/post")
+        domUpdates.displayAPIError();
       })
   }
 }
