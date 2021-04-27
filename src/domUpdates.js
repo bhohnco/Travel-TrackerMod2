@@ -85,7 +85,7 @@ const domUpdates = {
       <section class="lower-card">
       </section>
         <div class="card-text">
-          <h4 class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</h4>
+          <p class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</p>
           <p class="date">Trip date: ${dateSplit[1]}/${dateSplit[2]}/${dateSplit[0]}</p>
         <p class="Duration">Duration of of trip: ${trip.duration}</p>
         <p class="Number"> Number of travelers: ${trip.travelers}</p>
@@ -116,7 +116,7 @@ const domUpdates = {
       <section class="lower-card">
       </section>
         <div class="card-text">
-          <h4 class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</h4>
+          <p class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</p>
           <p class="date">Trip start date: ${dateSplit[1]}/${dateSplit[2]}/${dateSplit[0]}</p>
         </div>
         <p class="Duration">Duration of of trip: ${trip.duration}</p>
@@ -147,7 +147,7 @@ const domUpdates = {
       <section class="lower-card">
       </section>
       <div class="card-text">
-        <h4 class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</h4>
+        <p class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</p>
         <p class="date">Trip start date: ${dateSplit[1]}/${dateSplit[2]}/${dateSplit[0]}</p>
       </div>
       <p class="Duration">Duration of of trip: ${trip.duration}</p>
@@ -178,7 +178,7 @@ const domUpdates = {
       <section class="lower-card">
       </section>
         <div class="card-text">
-          <h4 class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</h4>
+          <p class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</p>
           <p class="date">Trip start date: ${dateSplit[1]}/${dateSplit[2]}/${dateSplit[0]}</p>
         </div>
         <p class="Duration">Duration of of trip: ${trip.duration}</p>
