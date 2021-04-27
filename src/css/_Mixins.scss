@@ -2,3 +2,16 @@
   font-family: $style;
   font-size: $size;
 }
+@mixin flex($dir) {
+  display: flex;
+  flex-direction: $dir;
+}
+
+@mixin justify($spacing) {
+  justify-content: $spacing;
+}
+
+@mixin dimensions($height, $width) {
+  height: $height;
+  width: $width;
+}
