@@ -1,8 +1,27 @@
 @import "_Variables";
 @import "_Mixins";
+@import "_LogIn";
 
-.hidden{
-  display: none;
+* {
+  box-sizing: border-box;
+  //border-color: red;
+}
+
+////*{
+////  border-color: red;
+//}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+h1 {
+  @include font-style-size($headline-font, 2.5em);
+  color: $primary-color;
+  margin-left: 1.7em;
 }
 
 body {
@@ -15,78 +34,105 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-#log-out-button {
-  background-color:$medium-gray;
-  border: none;
-  display: inline;
-  float: right;
-  height: 4.6vw;
-  top: 4px;
-  width: 20.6vw;
-}
-
-.login-view {
-  margin: 5% 30%;
-  background-color: $off-white-color;
-  opacity: 0.7;
-}
-
-.login-form {
-  font-size: 1.1em;
-  display: flex;
-  flex-direction: column;
-  padding: 1em 4em 3em 4em;
-}
-
-.login-field {
-  margin-top: .5em;
-  margin-bottom: 2em;
-}
-
-#login-submit{
-  font-size: 1.1em;
-  background-color: $medium-gray;
-  color: black;
-  height: 1.8em;
-  border-radius: .5em;
-}
-
 .container{
-  margin: 0 46px;
+    margin: 0 15px;
+  }
+
+ .todays-date{
+  background-color: #5e7c91;;
 }
 
-.grid-container {
+.request-trip-container{
+    @include flex(column);
+    //@include justify(space-evenly);
+    background-color: #6F8695;
+    box-shadow: 0 0 6px 2px rgb(255, 227, 129);
+    align-content: center;
+    justify-content: space-around;
+    margin-top: 12px;
+    border-radius: 5px;
+  }
+
+
+.input-options {
+  @include flex(row);
+}
+
+.new-trip-cost {
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.button-wrapper {
+  @include flex(row);
+}
+
+label {
+  align-self: center;
+}
+
+//input,
+//select {
+//  margin: 0 5px;
+//  max-height: 18px;
+//  align-self: center;
+//}
+
+.input-options {
   display: grid;
-  grid-gap: 12px;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-gap: 6px;
+  grid-template-columns: auto auto auto;
+  width: 50vw;
+  justify-self: center;
+  border-radius: 5px;
 }
 
 .grid {
-  box-shadow: 0 0 6px 2px rgba(148, 147, 147, 0.71);
+  box-shadow: 0 0 6px 2px rgb(255, 227, 129);
   display: grid;
-  grid-template-rows: 35% 65%;
+  grid-template-rows: 35% 43%;
   height: 450px;
+}
+
+.grid-container {
+  @include flex(row);
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+
 }
 
 .top-row {
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  justify-content: space-between;
+  //justify-content: space-between;
   padding: 14px;
 }
 
 .lower-card {
   align-items: flex-start;
-  background-color: #EBF2FA;
+  background-color: #5e7c91;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  //justify-content: space-between;
   padding: 15px;
 }
 
+//20vhX20vw
+//image:contain
+//
+img {
+  height: 137px;
+  width: 357px;
+}
+
+//img:hover {
+//  height: 45px;
+//}
+
 .card-text>h3 {
-  color: #05668D;
+  color: $darkBlue-color;
   font-size: 20px;
   line-height: 1;
   margin: 0;
@@ -97,35 +143,83 @@ body {
   margin: 0;
 }
 
-//.trip-destination {
-//  color: #0f5479;
-//  font-size: 35px;
-//}
-
 .card-text {
   display: flex;
   flex-direction: column;
 }
 
-
-@media screen and (min-width: 992px) {
-  .login-view {
-    margin: 5% 10%;
-  }
-  .login-out-button {
-    height: 2.6vw;
-    width: 5.6vw;
-  }
+p{
+  color: $darkBlue-color;
+  font-size: 1.0em;
+  background-color: #5e7c91;
 }
 
-@media screen and (min-width: 600px) {
-  .login-view {
-    margin: 3% 15%;
+.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .input-options {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 50vw;
+    justify-self: center;
   }
 
-}
-@media screen and (max-width: 600px) {
-  .login-view {
-    margin: 5% 8%;
+  select {
+    width: 140px;
   }
-}
+
+
+    .number-travelers {
+      grid-area: travelers;
+    }
+
+    .possible-destination {
+      grid-area: destination;
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    .login-view {
+      margin: 5% 10%;
+    }
+    .login-out-button {
+      height: 2.6vw;
+      width: 5.6vw;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    .login-view {
+      margin: 3% 15%;
+    }
+
+  }
+  @media screen and (max-width: 600px) {
+    .login-view {
+      margin: 5% 8%;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: auto;
+    }
+
+    h1 {
+      @include font-style-size($headline-font, 2.2em);
+      color: $primary-color;
+      margin-left: 1.7em;
+    }
+
+    .input-options {
+      display: grid;
+      grid-template-columns: auto auto;
+      width: 50vw;
+      justify-self: center;
+    }
+
+  }
+
