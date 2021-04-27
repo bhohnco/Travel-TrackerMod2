@@ -14,6 +14,16 @@ const domUpdates = {
     }
   },
 
+  displayAPIError(message) {
+    let apiErrorMsg = document.getElementById('API-error-msg')
+    if (message === 'success') {
+      apiErrorMsg.innerText = 'Sorry, were having an issue collecting the data, please try again later.';
+    } else {
+      apiErrorMsg.innerText = '';
+    }
+  },
+
+
   getTodaysDate() {
     let todaysDate = document.querySelector(".todays-date");
     let date = new Date().toLocaleDateString("en-US").split("/");
@@ -67,12 +77,15 @@ const domUpdates = {
         let dateSplit = trip.date.split("/");
         past.innerHTML += `<section class="grid-container">
      <article class="grid">
-      <section class="top-row">
+     <p id="API-error-msg" class="error"></p>
+      <section class="card-container"
+      <section class="card top-row">
         <img src="${foundDest.image}" alt="${foundDest.alt}">
       </section>
       <section class="lower-card">
+      </section>
         <div class="card-text">
-          <h4 class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</h4>
+          <p class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</p>
           <p class="date">Trip date: ${dateSplit[1]}/${dateSplit[2]}/${dateSplit[0]}</p>
         <p class="Duration">Duration of of trip: ${trip.duration}</p>
         <p class="Number"> Number of travelers: ${trip.travelers}</p>
@@ -95,12 +108,15 @@ const domUpdates = {
         let dateSplit = trip.date.split("/");
         upcoming.innerHTML += `<section class="grid-container">
      <article class="grid">
+     <p id="API-error-msg" class="error"></p>
+      <section class="card-container"
       <section class="card top-row">
         <img src="${foundDest.image}" alt="${foundDest.alt}">
       </section>
       <section class="lower-card">
+      </section>
         <div class="card-text">
-          <h4 class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</h4>
+          <p class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</p>
           <p class="date">Trip start date: ${dateSplit[1]}/${dateSplit[2]}/${dateSplit[0]}</p>
         </div>
         <p class="Duration">Duration of of trip: ${trip.duration}</p>
@@ -123,12 +139,15 @@ const domUpdates = {
         let dateSplit = trip.date.split("/");
         pending.innerHTML += `<section class="grid-container">
    <article class="grid">
-    <section class="card top-row">
-      <img src="${foundDest.image}" alt="${foundDest.alt}">
-    </section>
-    <section class="lower-card">
+   <p id="API-error-msg" class="error"></p>
+    <section class="card-container"
+      <section class="card top-row">
+        <img src="${foundDest.image}" alt="${foundDest.alt}">
+      </section>
+      <section class="lower-card">
+      </section>
       <div class="card-text">
-        <h4 class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</h4>
+        <p class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</p>
         <p class="date">Trip start date: ${dateSplit[1]}/${dateSplit[2]}/${dateSplit[0]}</p>
       </div>
       <p class="Duration">Duration of of trip: ${trip.duration}</p>
@@ -151,12 +170,15 @@ const domUpdates = {
         let dateSplit = trip.date.split("/");
         current.innerHTML += `<section class="grid-container">
      <article class="grid">
+     <p id="API-error-msg" class="error"></p>
+     <section class="card-container"
       <section class="card top-row">
         <img src="${foundDest.image}" alt="${foundDest.alt}">
       </section>
       <section class="lower-card">
+      </section>
         <div class="card-text">
-          <h4 class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</h4>
+          <p class="trip-destination">${splitDestName[0]},<br> ${splitDestName[1]}</p>
           <p class="date">Trip start date: ${dateSplit[1]}/${dateSplit[2]}/${dateSplit[0]}</p>
         </div>
         <p class="Duration">Duration of of trip: ${trip.duration}</p>
