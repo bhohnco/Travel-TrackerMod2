@@ -3,7 +3,6 @@ const expect = chai.expect;
 
 import Destination from "../src/Destination";
 import sampleTestingData from '../test/sampleTestingData.js';
-import Traveler from "../src/Traveler";
 const destinationTestingData = sampleTestingData.destinationTestingData;
 
 describe('Destination', () => {

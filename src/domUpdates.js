@@ -165,6 +165,16 @@ const domUpdates = {
     </article>`
       })
     }
+  },
+
+  clearTripCostAfterRequest() {
+    document.querySelector(".new-trip-cost").classList.add("hidden");
+    document.querySelector(".select-date").value = "";
+    document.querySelector(".enter-duration").value = "";
+    document.querySelector(".number-travelers").value = "";
+    document.querySelector(".possible-destination").value = "0";
+    document.querySelector(".submit-request").disabled = true;
+    document.querySelector(".calc-cost").disabled = true;
   }
 }
 
