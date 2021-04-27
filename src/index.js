@@ -8,6 +8,8 @@ import Destination from "./Destination";
 let currentTraveler, currentTravelerTrips, currentTravelerDestinations,
   allDestinationsData, allTripsData, tripObject, newTravelerTrip, plannedTrip;
 
+window.onload(generateSingleTravelerAPI(34))
+
 const allInputs = document.querySelectorAll('.input');
 const loginButton = document.getElementById('login-submit');
 const logOutButton = document.getElementById('log-out-button');
