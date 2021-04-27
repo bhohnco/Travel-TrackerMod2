@@ -40,12 +40,11 @@ function generateSingleTravelerAPI(id) {
 }
 
 function generateAPIData() {
-  const fetches = [fetchData.generateAllTravelerData(), fetchData.generateDestinationData(), fetchData.generateTripData()];
+  const fetches = [ fetchData.generateDestinationData(), fetchData.generateTripData()];
   Promise.all(fetches)
     .then(data => {
-      allTravelerData = data[0]
-      allDestinationsData = data[1];
-      allTripsData = data[2];
+      allDestinationsData = data[0];
+      allTripsData = data[1];
       domUpdates.generateDestinationPicker(allDestinationsData)
       filterAllTripsForTraveler(allTripsData);
       filterAllTravelDestinations();
@@ -183,6 +182,7 @@ function checkIfFormFilledOut() {
 function submitRequest() {
   fetchData.generateNewTripForTraveler(tripObject)
     .then(generateAPIData());
+  domUpdates.clearTripCostAfterRequest();
 }
 
 function logOut() {
