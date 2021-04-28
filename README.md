@@ -21,7 +21,7 @@ For this project, we were asked to creating an application to manage and track d
 * Have Fetch functions handle errors
 * Working with the network to determine errors
 * Utilize Fetch to log in as a single traveler using Fetch API
-* 100% ARIA Audit
+* 100% ARIA Accessibility Audit
 
 #### User Login Mobile
 ![](https://user-images.githubusercontent.com/71860165/116410250-d0fb0200-a7f1-11eb-8d2a-9c57e8deeb42.gif)
