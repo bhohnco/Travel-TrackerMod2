@@ -1,93 +1,91 @@
-  <!DOCTYPE html>
-  <html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <title>Travel Tracker</title>
-    <link rel="logo icon" type="image/png" href="./images/yann-allegre-DlF0mqHKvkg-unsplash.jpg">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Travel Tracker is a trip reservation app that allows users to view previous trips, and add & delete trips">
-  </head>
-  <header>
-    <nav>
-      <button id="log-out-button" aria-label="Log out button" type="button">Log Out</button>
-    </nav>
-    <section class ="logo-area">
-      <h1>Those Who Wander</h1>
-    </section>
-  </header>
-  <body>
-    <section class="login-view hidden">
-      <h2>Log in</h2>
-      <form class ="login-form">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" required class="login-area" aria-label='Text input area to enter your username'>
-        <label for="password">Password</label>
-        <input type="text" id="password" name="password" required class="login-area" aria-label='Text input area to enter your password'>
-        <input type="submit" value="Submit" id="login-submit">
-        <p id="error-msg" class="error"></p>
-      </form>
-    </section>
-    <main class ="container">
-      <section class="traveler-view">
-        <h2 class="dash-form">Traveler Dashboard</h2>
-        <h3 id="traveler-name"></h3>
-        <p class="todays-date"></p>
-        <section class="dashboard">
-          <section class="request-trip-container">
-            <h2 class="book-new-trip-title">Book a New Trip Here!</h2>
-            <div class="input-options">
-              <label>Select Start Date:<input type="date" class="select-date input" name="select-date" min="2021-01-01" max="2030-12-31" /></label>
-              <label>Duration (in days):<input type="number" class="enter-duration input" name="enter-duration" min="1" placeholder="Duration" /></label>
-              <label>Travelers:<input type="number" class="number-travelers input" name="number-travelers" min="1" placeholder="Travelers" /></label>
-              <label>Choose A Destination:
-                <select class="possible-destination input" name="possible-destination">
-                  <option class="option" value="0">
-                    Choose Destination
-                  </option>
-                </select>
-              </label>
-            </div>
-            </form>
-            <div class="new-trip-cost hidden"></div>
-            <div class="button-wrapper">
-              <label><input type="submit" class="calc-cost" name="calc-cost" value="Calculate Trip Cost" disabled/></label>
-              <label><input type="submit" class="submit-request" name="submit" value="Submit Request" disabled/></label>
-            </div>
-          </section>
-        <section class="traveler-info side-dash">
-          <h2>Your Trip History</h2>
-          <section class="trip-results-view">
-            <p id="trip-total">Total spent on Trips:$<span id="total-spent-traveler"></span></p>
-            <section class="trip-container">
-              <section class="upcoming-trips">
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Those Who Wander</title>
+  <link rel="logo icon" type="image/png" href="./images/yann-allegre-DlF0mqHKvkg-unsplash.jpg">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Travel Tracker is a trip reservation app that allows users to view previous trips, and add & delete trips">
+</head>
+<header>
+  <nav>
+    <button id="log-out-button" aria-label="Log out button" type="button">Log Out</button>
+  </nav>
+  <section class ="logo-area">
+    <h1>Those Who Wander</h1>
+  </section>
+</header>
+<body>
+<section class="login-view">
+  <h2>Log in</h2>
+  <form class ="login-form">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" required class="login-area" aria-label='Text input area to enter your username'>
+    <label for="password">Password</label>
+    <input type="text" id="password" name="password" required class="login-area" aria-label='Text input area to enter your password'>
+    <input type="submit" value="Submit" id="login-submit">
+    <p id="error-msg" class="error"></p>
+  </form>
+</section>
+<main class ="container">
+  <section class="traveler-view hidden">
+    <h2 class="dash-form">Traveler Dashboard</h2>
+    <h3 id="traveler-name"></h3>
+    <p class="todays-date"></p>
+    <section class="dashboard">
+      <section class="request-trip-container">
+        <h2 class="book-new-trip-title">Book a New Trip Here!</h2>
+        <div class="input-options">
+          <label>Select Start Date:<input type="date" class="select-date input" name="select-date" min="2021-01-01" max="2030-12-31" /></label>
+          <label>Duration (in days):<input type="number" class="enter-duration input" name="enter-duration" min="1" placeholder="Duration" /></label>
+          <label>Travelers:<input type="number" class="number-travelers input" name="number-travelers" min="1" placeholder="Travelers" /></label>
+          <label>Choose A Destination:
+            <select class="possible-destination input" name="possible-destination">
+              <option class="option" value="0">
+                Choose Destination
+              </option>
+            </select>
+          </label>
+        </div>
+        <div class="new-trip-cost hidden"></div>
+        <div class="button-wrapper">
+          <label><input type="submit" class="calc-cost" name="calc-cost" value="Calculate Trip Cost" disabled/></label>
+          <label><input type="submit" class="submit-request" name="submit" value="Submit Request" disabled/></label>
+        </div>
+      </section>
+      <section class="traveler-info side-dash">
+        <h2>Your Trip History</h2>
+        <section class="trip-results-view">
+          <p id="trip-total">Total spent on Trips:$<span id="total-spent-traveler"></span></p>
+          <section class="trip-container">
+            <section class="upcoming-trips">
               <p>Upcoming Trip Information</p>
               <div class="upcoming-trips-container">
               </div>
-              </section>
-              <section class="pending-trips">
+            </section>
+            <section class="pending-trips">
               <p>Pending Trip Information</p>
               <div class="pending-trips-container">
               </div>
-              </section>
-              <section class="current-trips">
-                <p>Current Trip Information</p>
-                <div class="current-trips-container">
-                </div>
-              </section>
-              <section class="past-trips">
+            </section>
+            <section class="current-trips">
+              <p>Current Trip Information</p>
+              <div class="current-trips-container">
+              </div>
+            </section>
+            <section class="past-trips">
               <p>Past Trip Information</p>
               <div class="past-trips-container">
               </div>
-              </section>
             </section>
-          </section>
           </section>
         </section>
       </section>
-    </main>
-  </body>
-  </html>
-
+    </section>
+  </section>
+</main>
+</body>
+</html>

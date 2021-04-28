@@ -1,11 +1,6 @@
-@import "_Variables";
-@import "_Mixins";
-@import "_LogIn";
-
 * {
   box-sizing: border-box;
 }
-
 
 .logo-area {
   @include font-style-size($headline-font, 2.2em);
@@ -44,11 +39,10 @@ body {
 
 .container {
     margin: 0 15px;
-  }
+}
 
 #traveler-name {
   color: #05078f;
-  //background-color: $medium-gray;
   font-size: 1.3em;
 }
 
@@ -66,7 +60,6 @@ body {
     margin-top: 12px;
     border-radius: 5px;
   }
-
 
 .input-options {
   @include flex(row);
@@ -86,7 +79,6 @@ body {
 
 label {
   align-self: center;
-  color: $medium-gray;
 }
 
 .grid-container {
@@ -94,7 +86,6 @@ label {
   display: grid;
   grid-gap: 12px;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-
 }
 
 .grid {
@@ -118,8 +109,8 @@ label {
 }
 
 .card-container > img{
-    width: 90vw;
-  }
+  width: 90vw;
+}
 
 .top-row {
   background-repeat: no-repeat;
@@ -131,26 +122,13 @@ label {
   align-items: flex-start;
   background-color: $darkBlue-color;
   flex-direction: column;
-  //justify-content: space-between;
   padding: 15px;
 }
-//viewport VH
-//viewport VW 30 for VW 30 30 square
-//20vhX20vw
-//image:contain
-//
+
 img {
   height: 137px;
   width: 357px;
 }
-
-//img:hover {
-//  height: 45px;
-//}
-//h4 {
-//  font-size: 20px;
-//  color: $lightYellow;
-//}
 
 .card-text>h4 {
   font-size: 16px;
@@ -200,38 +178,32 @@ p{
     justify-self: center;
   }
 
-  .grid {
-    flex-direction: column;
-  }
-
   select {
     width: 140px;
   }
 
-    .number-travelers {
-      grid-area: travelers;
-    }
-
-    .possible-destination {
-      grid-area: destination;
-    }
   }
 
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 720px) {
+
+    .trip-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    img {
+      height: 137px;
+      width: 357px;
+    }
+
     .login-view {
       margin: 5% 10%;
     }
+
     .login-out-button {
       height: 1.6vw;
       width: 4.6vw;
     }
-  }
-
-  @media screen and (min-width: 600px) {
-    .login-view {
-      margin: 3% 15%;
-    }
-
   }
 
   @media screen and (max-width: 600px) {
@@ -256,5 +228,5 @@ p{
       width: 50vw;
       justify-self: center;
     }
-  }
 
+  }
