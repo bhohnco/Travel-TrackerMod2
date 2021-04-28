@@ -1,10 +1,10 @@
 
 ## Travel Tracker
 
-##Overview
+## Overview
 
 For this project, we were asked to creating an application to manage and track different trips for users and a travel agency.
-###Goals and Challenges 
+### Goals and Challenges 
 * Utulize APIs
 * Utulize Fetch: GET & POST 
 * Testing all files
