@@ -4,6 +4,16 @@
 ## Overview
 
 For this project, we were asked to creating an application to manage and track different trips for users and a travel agency.
+
+### Install and SetUp
+In another terminal tab, clone down the repository at https://github.com/turingschool-examples/travel-tracker-api
+Run npm install
+Run npm start
+Clone down this repository (https://github.com/bhohnco/Travel-TrackerMod2) to your machine
+Access cloned directory
+Run npm install
+Run npm start and visit localhost:8080
+
 ### Goals and Challenges 
 * Utulize APIs
 * Utulize Fetch: GET & POST 
