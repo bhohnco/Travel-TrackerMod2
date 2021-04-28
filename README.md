@@ -29,6 +29,9 @@ For this project, we were asked to creating an application to manage and track d
 #### Booking Trip Mobile
 ![](https://user-images.githubusercontent.com/71860165/116410573-26371380-a7f2-11eb-9256-919f01548a99.gif)
 
+### Desktop View
+![](https://user-images.githubusercontent.com/71860165/116420080-e6285e80-a7fa-11eb-8416-7aea7927926e.gif)
+
 ### Technology Used
 ![](https://user-images.githubusercontent.com/71860165/116416056-40272500-a7f7-11eb-95b6-2e8770502849.png)
 ![](https://user-images.githubusercontent.com/71860165/116416068-43221580-a7f7-11eb-92d3-d7ccf90cd0a9.png)
