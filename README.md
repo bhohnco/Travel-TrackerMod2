@@ -23,6 +23,12 @@ For this project, we were asked to creating an application to manage and track d
 * Utilize Fetch to log in as a single traveler using Fetch API
 * 100% ARIA Audit
 
+#### User Login Mobile
+![](https://user-images.githubusercontent.com/71860165/116410250-d0fb0200-a7f1-11eb-8d2a-9c57e8deeb42.gif)
+
+#### Booking Trip Mobile
+![](https://user-images.githubusercontent.com/71860165/116410573-26371380-a7f2-11eb-9256-919f01548a99.gif)
+
 ### Technology Used
 ![](https://user-images.githubusercontent.com/71860165/116416056-40272500-a7f7-11eb-95b6-2e8770502849.png)
 ![](https://user-images.githubusercontent.com/71860165/116416068-43221580-a7f7-11eb-92d3-d7ccf90cd0a9.png)
